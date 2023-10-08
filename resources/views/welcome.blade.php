@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="Pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Laravel</title>
-    </head>
-    <body>
+@section('title', 'HDC Events')
+
+@section('content')
         <h1>Algum título</h1>
 
         @if (10 > 5)
@@ -44,6 +40,4 @@
 
         {{-- Comentário do blade que não aparece para cliente --}}
 
-
-    </body>
-</html>
+@endsection
