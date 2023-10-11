@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'HDC Events')
+@section('title', 'Laravel')
 
 @section('content')
         <h1>Algum título</h1>
