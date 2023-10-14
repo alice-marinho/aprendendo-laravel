@@ -4,28 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+# Chamando o Model que criei para pode fazer conexão as views
+use App\Models\Event;
+
 class EventController extends Controller
 {
     public function index(){
-    
-        $nome = "Matheus";
-        $idade = 29;
+       
+        # Está chamando todos os meus eventos do banco de dados
+        $events= Event::all();
 
-        $arr = [1,2,3,4,5];
-
-        $nomes = ["Matheus", "Maria", "João", "Saulo"];
-
-        return view('welcome', 
-        [
-            'nome' => $nome, 
-            'idade2' => $idade, 
-            'profissao' => "Programador",
-            'arr' => $arr,
-            'nomes' => $nomes
-        ]);
+        # Enviando para nossa view \ todos os eventos 
+        return view('welcome', ['events' => $events]);
         }
+
     public function create(){
         return view('events.create');
+    }
+
+    public function store(Request $request){
+
+        $event = new Event;
+
+        $event->title  = $request-> title;
+        $event->city  = $request->city ;
+        $event->private  = $request->private ;
+        $event->description  = $request->description ;
+
+
+        $event->save();
+
+        return redirect('/');
     }
 
     public function login(){

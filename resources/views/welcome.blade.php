@@ -1,43 +1,33 @@
 @extends('layouts.main')
 
-@section('title', 'Laravel')
+@section('title', 'Conecta Eventos')
 
 @section('content')
-        <h1>Algum título</h1>
 
-        @if (10 > 5)
-            <p>A condição é true</p>
-        @endif
+<div id="search-container" class="col-md-12">
+    <h1>Busque um evento</h1>
+    <form action="">
+        <input type="search" name="search" id="search" class="form-control" placeholder="Procurar...">
+    </form>
+</div>
 
-        <p>{{ $nome }}</p>
-
-        @if($nome == "Pedro")
-        <p>O nome é Pedro</p>
-
-        @elseif($nome == "Matheus")
-        <p>O Nome é {{ $nome }} e ele tem {{ $idade2 }} anos, e trabalha como {{ $profissao }} </p>
-
-        @else
-        <p>O nome não é Pedro</p>
-        @endif 
-
-        @for($i = 0; $i < count($arr); $i++ )
-            <p>{{ $arr[$i]}} - {{$i}}</p>
-            @if($i == 2)
-            <p>O i é 2</p>
-            @endif
-        @endfor
-
-        @foreach($nomes as $nome)
-            <p>{{$nome}}</p>
-
+<div id="events-container" class="col-md-12">
+    <h2>Próximos Eventos</h2>
+    <p class="subtitle">Veja os eventos dos próximos dias</p>
+    <div id="cards-container" class="row">
+        @foreach($events as $event)
+            <div class="card col-md-3">
+                <img src="" alt="{{ $event-> title}}">
+                <div class="card-body">
+                    <p class="card-date">10/09/2023</p>
+                    <h5 class="card-title">{{$event-> title}}</h5>
+                    <p class="card-participants">X Participantes</p>
+                    <a href="" class="btn btn-primary">Saber Mais</a>
+                </div>
+            </div>
         @endforeach
 
-        @php
-            $name= "João";
-            echo "Rodando em php, $name";
-        @endphp
-
-        {{-- Comentário do blade que não aparece para cliente --}}
+    </div>
+</div>
 
 @endsection

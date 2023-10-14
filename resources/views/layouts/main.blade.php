@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,12 @@
     <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/" class="nav-bar" id="navbar">
+                            <img src="/img/meeting-icon.png" alt="Conecta Events">
+                        </a>
+                    
                     <ul class="navbar-nav mr-auto">
+                        
                         <li class="nav-item active">
                             <a href="/" class="nav-link">Eventos</a>
                         </li>
@@ -42,8 +47,10 @@
             </nav>
     </header>
         @yield('content')
+
+        
         <footer>
-            <p>Teste Alice &copy; 2023</p>
+            <p>Conecta Events &copy; 2023</p>
         </footer>
 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
