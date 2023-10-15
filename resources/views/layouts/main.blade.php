@@ -46,7 +46,19 @@
                 </div>
             </nav>
     </header>
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- Aqui está verificando se tem um return com a session msg. Caso não tenha ele segue com o layout padrão da tela inicial, caso tenha criado um evento ele aparece a msg -->
+                    @if(session('msg'))
+                        <p class="msg">{{ session('msg')}}</p>
+                    @endif
+                    @yield('content')
+                </div>
+            </div>
+        </main>
+        
 
         
         <footer>
