@@ -24,7 +24,9 @@
                     <p class="card-date">10/09/2023</p>
                     <h5 class="card-title">{{$event-> title}}</h5>
                     <p class="card-participants">X Participantes</p>
-                    <a href="" class="btn btn-primary">Saber Mais</a>
+
+                    <!-- Objeto events / Acessando a propriedade id dentro de events no banco -->
+                    <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
                 </div>
             </div>
         @endforeach

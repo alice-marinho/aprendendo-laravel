@@ -65,6 +65,7 @@
             <p>Conecta Events &copy; 2023</p>
         </footer>
 
+        <!-- Links para ter acesso aos icones do ion icons --> 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>

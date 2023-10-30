@@ -26,10 +26,12 @@ class EventController extends Controller
 
         $event = new Event;
 
+        # A coluna do banco é preenchida pelo o que o usuário inserir
         $event->title  = $request-> title;
         $event->city  = $request->city ;
         $event->private  = $request->private ;
         $event->description  = $request->description ;
+        $event->items = $request->items ;
 
         # Image Upload
 
@@ -52,6 +54,15 @@ class EventController extends Controller
         $event->save();
 
         return redirect('/')->with('msg','Evento criado com sucesso!');
+    }
+
+    public function show($id){
+
+        # Chamando o model Event para encontrar o id fornecido no Front para o funcionamento do método, sendo find or fail
+        $event = Event::findOrFail($id);
+
+        # Vai retornar o evento para view
+        return view('events.show', ['event' => $event]);
     }
 
     public function login(){

@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+    
+    # casts são uma funcionalidade que converte atributos de um modelo para um tipo de dado específico
+    protected $casts = [
+
+        # convertendo items (string) para array
+        'items' => 'array'
+    ];
 }

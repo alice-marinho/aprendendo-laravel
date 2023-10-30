@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('image');
+            $table->json('items');
         });
     }
 
@@ -21,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        # O blueprint é uma classe que fornece uma interface para fazer alterações em tabelas do banco de dados
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('image');
+            $table->dropColumn('items');
         });
     }
 };

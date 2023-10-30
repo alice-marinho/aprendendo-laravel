@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventController;
 
+# Mostrando todos os registros (index)
 Route::get('/', [EventController::class, 'index'] );
+
+# Criar um evento (create)
 Route::get('/events/create', [EventController::class, 'create'] );
+
+# Rota para mostrar (show) o evento criado
+Route::get('/events/{id}', [EventController::class, 'show'] );
+
+# Método store onde envia os dados para o banco
 Route::post('/events',[EventController::class,'store']);
 
 Route::get('/events/entrar', [EventController::class, 'login']  );
