@@ -11,6 +11,10 @@ class EventController extends Controller
 {
     public function index(){
        
+        $search = request('search');
+        
+        if($search)
+
         # Está chamando todos os meus eventos do banco de dados
         $events= Event::all();
 
@@ -28,6 +32,7 @@ class EventController extends Controller
 
         # A coluna do banco é preenchida pelo o que o usuário inserir
         $event->title  = $request-> title;
+        $event->date = $request-> date;
         $event->city  = $request->city ;
         $event->private  = $request->private ;
         $event->description  = $request->description ;

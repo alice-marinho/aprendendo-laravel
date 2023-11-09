@@ -16,4 +16,7 @@ class Event extends Model
         # convertendo items (string) para array
         'items' => 'array'
     ];
+
+    # Mostrando o campo de data
+    protected $dates = ['date'];
 }

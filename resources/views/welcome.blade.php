@@ -6,7 +6,7 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um evento</h1>
-    <form action="">
+    <form action="/" method="GET">
         <input type="search" name="search" id="search" class="form-control" placeholder="Procurar...">
     </form>
 </div>
@@ -21,7 +21,7 @@
             <!-- adicionando a imagem que o usuário colocou e o titúlo -->
                 <img src="/img/events/{{ $event-> image }}" alt="{{ $event-> title}}">
                 <div class="card-body">
-                    <p class="card-date">10/09/2023</p>
+                    <p class="card-date">{{ date('d/m/Y'), strtotime($event->date) }}</p>
                     <h5 class="card-title">{{$event-> title}}</h5>
                     <p class="card-participants">X Participantes</p>
 
@@ -31,6 +31,10 @@
             </div>
         @endforeach
 
+        <!-- Mostrando a mensagem caso não tenha nenhum evento cadastrado -->
+        @if(count($events)== 0)
+            <p>Não há eventos disponíveis</p>
+        @endif
     </div>
 </div>
 
