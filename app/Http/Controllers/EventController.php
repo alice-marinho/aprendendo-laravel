@@ -68,9 +68,16 @@ class EventController extends Controller
 
         }
 
+        # Pegar o usuário logado
+        $user = auth()->user();
+
+        # Acessando a propriedade id do usuário logado
+        $event->user_id = $user->id;
+
         $event->save();
 
         return redirect('/')->with('msg','Evento criado com sucesso!');
+
     }
 
     public function show($id){

@@ -19,4 +19,10 @@ class Event extends Model
 
     # Mostrando o campo de data
     protected $dates = ['date'];
+
+    public function user() {
+
+        # Um evento pertece somente a uma pessoa
+        return $this->belongsTo('App\Models\User');
+    }
 }
