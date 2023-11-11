@@ -36,12 +36,32 @@
                         <li class="nav-item active">
                             <a href="/events/create" class="nav-link">Criar Eventos</a>
                         </li>
+
+                        <!-- Diretiva que faz os elementos aparecerem quando está logado -->
+                        @auth
                         <li class="nav-item active">
-                            <a href="/events/entrar" class="nav-link">Entrar</a>
+                            <a href="/dashboard" class="nav-link">Meus eventos</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="/events/cadastro" class="nav-link">Cadastrar</a>
+                            <form action="/logout" method="post">
+                                @csrf 
+
+                                <!-- Impede o envio automático de um formulário ao clicar em um botão -->
+                                <a href="/logout" class="nav-link" 
+                                onclick="event.preventDefault(); this.closest('form').submit();"> Sair</a>
+                            </form>
                         </li>
+                        @endauth
+
+                        <!-- Diretiva que faz aparecer quando não há conta logada -->
+                        @guest
+                        <li class="nav-item active">
+                            <a href="/login" class="nav-link">Entrar</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="/register" class="nav-link">Cadastrar</a>
+                        </li>
+                        @endguest
                     </ul>
                 </div>
             </nav>

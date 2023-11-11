@@ -13,13 +13,25 @@ class EventController extends Controller
        
         $search = request('search');
         
-        if($search)
+        # if para mostrar se for uma pesquisar mostrar os especificos, se não mostrar todos os eventos normalmente
+        if($search){
 
-        # Está chamando todos os meus eventos do banco de dados
-        $events= Event::all();
+            # Lógica de pesquisa 
+            $events = Event::where([
+                ['title','like','%'.$search.'%'] 
+            ])->get(); # Metódo Get para pegar as informações para pesquisa
 
-        # Enviando para nossa view \ todos os eventos 
-        return view('welcome', ['events' => $events]);
+
+        }
+        else {
+            # Está chamando todos os meus eventos do banco de dados
+            $events= Event::all();
+        }
+
+        
+
+        # Enviando para nossa view \ todos os eventos e o search, caso tenha
+        return view('welcome', ['events' => $events, 'search' => $search]);
         }
 
     public function create(){
